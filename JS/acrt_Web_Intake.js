@@ -1226,7 +1226,9 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 		
 	$scope.origSelectedResults1=$scope.origSelectedResults-1;
 	
-	$scope.addIssue = function(index) {    	
+	$scope.addIssue = function(index) { 
+    console.log('adding a child issue ', index)
+    $scope.removeImage(index)   	
     // if($scope.selected_name_tstgrp[index] !== undefined){
 	  $scope.insertRoww = []; 
 	  let addedPosition = index;      	
