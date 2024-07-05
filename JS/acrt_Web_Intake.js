@@ -103,7 +103,7 @@ app.controller('acrtWebIntakeCtrl', ['$scope', function($scope, $filter) {
   $scope.rmdatnDtlID = [];
   $scope.rmdatnDatelID = [];
 
-  
+
   console.log('acrtWebIntakeCtrl stevieeee');
 	$scope.selectedFile = '';
    $scope.fileNameChanged = function () {
@@ -160,30 +160,35 @@ span.onclick = function() {
     console.log('resetRow Steveeee', index);
     // Reset the fields in the corresponding row
     $scope.checked20[index] = false;
-        $scope.selected_name_ieVersn1[index] = '';
-        $scope.selected_name_edVersn1[index] = '';
-        $scope.selected_name_chVersn1[index] = '';
-        $scope.selected_name_sfVersn1[index] = '';
-        $scope.selected_name_fxVersn1[index] = '';
-        $scope.entOthrBrsrIDVrsnl[index] = '';
-        $scope.entOthrBrsrIDl[index] = '';
-        $scope.testerCommentID[index] = '';
-        $scope.location[index] = '';
-        $scope.imgCnvrsn[index] = null;
-        $scope.imageCapturedStored[index] = false;
-        $scope.selected_id_glbl[index] = '';
-        $scope.rmdatnDtlID[index] = '';
-        $scope.rmdatnDatelID[index] = null;
+    $scope.selected_name_ieVersn1[index] = '';
+    $scope.selected_name_edVersn1[index] = '';
+    $scope.selected_name_chVersn1[index] = '';
+    $scope.selected_name_sfVersn1[index] = '';
+    $scope.selected_name_fxVersn1[index] = '';
+    $scope.entOthrBrsrIDVrsnl[index] = '';
+    $scope.entOthrBrsrIDl[index] = '';
+    $scope.testerCommentID[index] = '';
+    $scope.location[index] = '';
+    $scope.imgCnvrsn[index] = null;
+    $scope.imageCapturedStored[index] = false;
+    $scope.selected_id_glbl[index] = '';
+    $scope.rmdatnDtlID[index] = '';
+    $scope.rmdatnDatelID[index] = null;
   };
 
   // New function to combine elemntClicked2 and resetRow
   $scope.handleDropdownChange = function(index) {
+    console.log('handleDropdownChange', index)
     var selectedOption = $scope.optionsTstrslt1.find(function(o) { return o.id === $scope.selected_id_tstrslt[index]; });
     if (selectedOption) {
         $scope.selected_name_tstgrp[index] = selectedOption.name;
     }
     $scope.elemntClicked2(index);
     $scope.resetRow(index);
+    let test = [index];
+    console.log(test)
+    $scope.removeImage([index])
+
 };
 
   
@@ -2118,6 +2123,7 @@ $scope.uploadImageClicked1 = true;
 
 //this is used to remove image from test ID
   $scope.removeImage = function(index) { 
+    console.log('index from removing the image', index)
          
          $scope.imgCnvrsn.splice(index, 2);	
 		 
@@ -2141,6 +2147,8 @@ $scope.uploadImageClicked1 = true;
 	} 
 	
 	  $scope.removeImage2 = function(index) { 
+      console.log('index from removing the image 2', index)
+
          //let remPosition = index+1; 
          $scope.imgCnvrsn2.splice(index, 2);		 
         // $scope.imageCaptured[index]= false;
@@ -2160,7 +2168,9 @@ $scope.uploadImageClicked1 = true;
    }, 500);
 	} 
 	
-	    $scope.removeImage1 = function(index) {			
+	    $scope.removeImage1 = function(index) {
+        console.log('index from removing the image3', index)
+			
 		 $scope.imageCaptured[index]= false;
 		//$scope.imgCnvrsn1.splice(index, 1, '"imgValue" :"."}'); 
          $scope.imgCnvrsn1.splice(index, 2); //removed image and don't select another image	 
@@ -2192,7 +2202,7 @@ $scope.addedIssueRsltSelected = true;
 
 
  $scope.elemntClicked2 = function(i) {
-  console.log("clicked steveee");
+  console.log("clicked steveeeE");
   $scope.browseImageOption[i]=true;
   $scope.elementIsClicked3 = "RsltSelected" + i;
   if($scope.selected_name_tstgrp[i] != undefined){
