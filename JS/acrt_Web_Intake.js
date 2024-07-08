@@ -185,8 +185,6 @@ span.onclick = function() {
     }
     $scope.elemntClicked2(index);
     $scope.resetRow(index);
-    let test = [index];
-    console.log(test)
     $scope.removeImage([index])
 
 };
@@ -2126,6 +2124,11 @@ $scope.uploadImageClicked1 = true;
 //this is used to remove image from test ID
   $scope.removeImage = function(index) { 
     console.log('index from removing the image', index)
+    var fileInputElement = document.getElementById('browseImage' + index);
+    console.log('fileINput', fileInputElement)
+        if (fileInputElement) {
+            fileInputElement.value = '';
+        }
          
          $scope.imgCnvrsn.splice(index, 2);	
 		 
