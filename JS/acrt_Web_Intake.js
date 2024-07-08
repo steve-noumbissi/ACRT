@@ -159,6 +159,7 @@ span.onclick = function() {
   $scope.resetRow = function(index) {
     console.log('resetRow Steveeee', index);
     // Reset the fields in the corresponding row
+
     $scope.checked20[index] = false;
     $scope.selected_name_ieVersn1[index] = '';
     $scope.selected_name_edVersn1[index] = '';
@@ -174,18 +175,26 @@ span.onclick = function() {
     $scope.selected_id_glbl[index] = '';
     $scope.rmdatnDtlID[index] = '';
     $scope.rmdatnDatelID[index] = null;
+
+    $scope.removeImage([index]);
   };
 
   // New function to combine elemntClicked2 and resetRow
   $scope.handleDropdownChange = function(index) {
     console.log('handleDropdownChange', index)
     var selectedOption = $scope.optionsTstrslt1.find(function(o) { return o.id === $scope.selected_id_tstrslt[index]; });
+    console.log("selectedOption", selectedOption);
+    console.log("selected_id_tstrslt", $scope.selected_id_tstrslt);
+    
+    console.log(' $scope.selected_name_tstgrp[index]',  $scope.selected_name_tstgrp)
     if (selectedOption) {
         $scope.selected_name_tstgrp[index] = selectedOption.name;
+        console.log("selectedOption", selectedOption);
+        console.log(' $scope.selected_name_tstgrp[index]',  $scope.selected_name_tstgrp[index])
     }
     $scope.elemntClicked2(index);
     $scope.resetRow(index);
-    $scope.removeImage([index])
+    //$scope.removeImage([index])
 
 };
 
@@ -1225,8 +1234,11 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 	$scope.origSelectedResults1=$scope.origSelectedResults-1;
 	
 	$scope.addIssue = function(index) { 
-    console.log('adding a child issue ', index)
-    $scope.removeImage(index)   	
+    console.log('adding a child issue ', index);
+    $scope.resetRow(index);
+    let selectedResult = document.getElementById(index);
+    selectedResult.value = '';
+    //console.log('testS', testS.value)
     // if($scope.selected_name_tstgrp[index] !== undefined){
 	  $scope.insertRoww = []; 
 	  let addedPosition = index;      	
@@ -2214,12 +2226,14 @@ $scope.addedIssueRsltSelected = true;
   $scope.originalIssueRsltSelected = true;  
   }
   else if($scope.selected_name_tstgrp[i] != 'undefined'){
+    console.log('heloo')
   $scope.originalIssueRsltSelected = true;  
   }
   
    setTimeout(function() {
 		
 for (let b = 0; b < $scope.origSelectedResults; b++) {
+  console.log('$scope.selected_name_tstgrp[b]', $scope.selected_name_tstgrp[b])
 	if(i==b){
     if ($scope.jsonData[0].Criteria[b].TestID == " 1.A" && $scope.selected_name_tstgrp[b]== "Does Not Apply"){	
       $scope.default_SelectedResult[b+1] = "Does Not Apply";
