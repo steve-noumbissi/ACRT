@@ -160,19 +160,64 @@ span.onclick = function() {
     console.log('resetRow Steveeee', index);
     // Reset the fields in the corresponding row
 
+
+    $scope.testerCommentID[index] = '';
+    $scope.location[index] = '';
+    $scope.imgCnvrsn[index] = null;
+    $scope.imageCapturedStored[index] = false;
+    console.log('selected_id_ieVersn1',  $scope.selected_id_ieVersn1);
+    console.log('selected_id_ieVersn1[index]',  $scope.selected_id_ieVersn1[index]);
+
+    console.log('chkBoxValIE1',  $scope.chkBoxValIE1);
+    console.log('chkBoxValIE1[index]',  $scope.chkBoxValIE1[index]);
+    
+    $scope.selected_id_glbl[index] = '';
+
+    console.log('selected_name_ieVersn1',  $scope.selected_name_ieVersn1);
+    console.log('selected_name_ieVersn1[index]',  $scope.selected_name_ieVersn1[index]);
+    
+
     $scope.checked20[index] = false;
     $scope.selected_name_ieVersn1[index] = '';
     $scope.selected_name_edVersn1[index] = '';
     $scope.selected_name_chVersn1[index] = '';
     $scope.selected_name_sfVersn1[index] = '';
     $scope.selected_name_fxVersn1[index] = '';
+
+
+    // the actual check box of the broswer type
+    console.log('$scope.chkBoxValIE1',  $scope.chkBoxValIE1);
+    $scope.chkBoxValIE1[index] = false;
+    $scope.chkBoxValEdg1[index] = false;
+    $scope.chkBoxValChrm1[index] = false;
+    $scope.chkBoxValSaf1[index] = false;
+    $scope.chkBoxValFrfx1[index] = false;
+    $scope.chkBoxValOthrl[index] = false;
+    $scope.otherBrowserl[index] = '';
+    
+
+    // value for browser type
+    $scope.checkboxModel.value14[index]="";
+    $scope.checkboxModel.value51[index] = '';
+    $scope.checkboxModel.value21[index] = '';
+    $scope.checkboxModel.value31[index] = '';
+    $scope.checkboxModel.value41[index] = '';
+    $scope.selected_id_ieVersn1[index] = '';
+    $scope.selected_id_edVersn1[index] = '';
+    $scope.selected_id_chVersn1[index] = '';
+    $scope.selected_id_sfVersn1[index] = '';
+    $scope.selected_id_fxVersn1[index] = '';
+
+  
+
+    // vallue for other in browser for type and ver
     $scope.entOthrBrsrIDVrsnl[index] = '';
     $scope.entOthrBrsrIDl[index] = '';
-    $scope.testerCommentID[index] = '';
-    $scope.location[index] = '';
-    $scope.imgCnvrsn[index] = null;
-    $scope.imageCapturedStored[index] = false;
-    $scope.selected_id_glbl[index] = '';
+    
+
+
+
+    $scope.selected_name_glbl[index] = '';
     $scope.rmdatnDtlID[index] = '';
     $scope.rmdatnDatelID[index] = null;
 
@@ -183,15 +228,25 @@ span.onclick = function() {
   $scope.handleDropdownChange = function(index) {
     console.log('handleDropdownChange', index)
     var selectedOption = $scope.optionsTstrslt1.find(function(o) { return o.id === $scope.selected_id_tstrslt[index]; });
-    console.log("selectedOption", selectedOption);
-    console.log("selected_id_tstrslt", $scope.selected_id_tstrslt);
+
     
-    console.log(' $scope.selected_name_tstgrp[index]',  $scope.selected_name_tstgrp)
-    if (selectedOption) {
-        $scope.selected_name_tstgrp[index] = selectedOption.name;
-        console.log("selectedOption", selectedOption);
-        console.log(' $scope.selected_name_tstgrp[index]',  $scope.selected_name_tstgrp[index])
-    }
+
+
+    // this is the block of code to have the text result appear in json but it populated other rows when selected option is does not apply. this is happening in line
+    // 2295 for (let b = 0; b < $scope.origSelectedResults; b++) {
+
+    // Select the option element with the specified value attribute
+    /*let selectedOptionContent = document.querySelector(`option[value="${selectedResultValue}"]`);
+
+    // Check if the element exists
+    if (selectedOptionContent) {
+        // Print the text content of the option element
+        console.log('selectedOption.textContent:', selectedOptionContent.textContent);
+        $scope.selected_name_tstgrp[index] = selectedOptionContent.textContent
+    } else {
+        console.log('Option with value "number:1" not found.');
+    }*/
+
     $scope.elemntClicked2(index);
     $scope.resetRow(index);
     //$scope.removeImage([index])
